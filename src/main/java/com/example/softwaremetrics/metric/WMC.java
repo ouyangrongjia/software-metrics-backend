@@ -5,6 +5,12 @@ import com.example.softwaremetrics.core.CKReport;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.*;
 
+/**
+ * WMC (Weighted Methods per Class) 表示类的权重方法数，用于衡量类的复杂度。
+ * 它是指类中方法的数量加权总和。
+ * 计算 WMC 指标的公式为：
+ * WMC = 方法数量加权总和，权重可认为是圈复杂度，即方法圈复杂度和
+ */
 public class WMC extends ASTVisitor implements Metric {
 
     protected int cc = 0;

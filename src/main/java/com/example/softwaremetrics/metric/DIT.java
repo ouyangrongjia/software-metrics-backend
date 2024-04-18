@@ -16,17 +16,16 @@ public class DIT extends ASTVisitor implements Metric{
         if (binding != null) {
             calculate(binding);
         }
-
         return super.visit(node);
     }
 
+    // 递归寻找父类统计继承深度
     private void calculate(ITypeBinding binding) {
         ITypeBinding father = binding.getSuperclass();
         if (father != null) {
             String fatherName = father.getQualifiedName();
             if (fatherName.endsWith("Object")) return;
             dit++;
-
             calculate(father);
         }
 

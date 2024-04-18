@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 
+// Number of Static Fields
 public class NOSF extends ASTVisitor implements Metric { // 静态变量数量
 
     private int fields;

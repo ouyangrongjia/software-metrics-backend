@@ -6,6 +6,21 @@ import com.example.softwaremetrics.core.CKReport;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * CBO（Coupling Between Objects）指标用于衡量一个类与其他类之间的耦合程度，
+ * 即一个类对其他类的依赖程度。高度的耦合会增加代码的复杂性和维护成本，
+ * 因此 CBO 指标通常用于评估类的设计质量。
+ * <p>
+ * CBO 的计算方法基于类中与其他类的依赖关系数量，包括字段类型、方法返回类型、
+ * 方法参数类型、方法抛出异常类型等等。每个与其他类相关的类型都会增加类的 CBO 值。
+ * <p>
+ * CBO 的计算公式如下：
+ *   CBO = 类中与其他类相关的依赖关系数量
+ * <p>
+ * CBO 指标的值越高，表示类与其他类之间的依赖关系越多，耦合程度越高，
+ * 类的设计越复杂。因此，为了降低类的耦合度，应该尽量减少类与其他类之间的依赖关系。
+ */
+
 public class CBO extends ASTVisitor implements Metric{
     private Set<String> coupling = new HashSet<String>();
 
@@ -129,14 +144,14 @@ public class CBO extends ASTVisitor implements Metric{
     private void coupleTo(ITypeBinding binding) {
         if (binding == null)
             return;
-        if (binding.isWildcardType())
+        if (binding.isWildcardType()) //通配符
             return;
 
         String type = binding.getQualifiedName();
         if (type.equals("null"))
             return;
 
-        if (!isFromJava(type) && !binding.isPrimitive())
+        if (!isFromJava(type) && !binding.isPrimitive()) //Java标准库类和原始类型不统计
             coupling.add(type.replace("[]", ""));
     }
 

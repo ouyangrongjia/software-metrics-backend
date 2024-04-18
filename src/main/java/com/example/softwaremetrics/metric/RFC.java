@@ -11,6 +11,14 @@ public class RFC extends ASTVisitor implements Metric {
 
     private HashSet<String> methodInvocations = new HashSet<String>();
 
+    private int methods;
+
+    @Override
+    public boolean visit(MethodDeclaration node) {
+        methods++;
+        return super.visit(node);
+    }
+
     public boolean visit(MethodInvocation node) {
         IMethodBinding binding = node.resolveMethodBinding();
         count(node.getName() + "/" + arguments(node.arguments()), binding);
@@ -57,7 +65,7 @@ public class RFC extends ASTVisitor implements Metric {
 
     @Override
     public void setResult(CKNumber result) {
-        result.setRfc(methodInvocations.size());
+        result.setRfc(methodInvocations.size() + methods);
 
     }
 

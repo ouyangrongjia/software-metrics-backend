@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 
+// Number of Public Fields
 public class NOPF extends ASTVisitor implements Metric{
     private int fields;
 

@@ -6,6 +6,7 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 
+// Number of Fields
 public class NOF extends ASTVisitor implements Metric{
     private int fields;
 

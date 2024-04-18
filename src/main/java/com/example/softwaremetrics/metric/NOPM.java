@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 
+// Number of Public Methods
 public class NOPM extends ASTVisitor implements Metric{
     private int methods;
 

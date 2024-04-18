@@ -4,6 +4,7 @@ import com.example.softwaremetrics.core.CKNumber;
 import com.example.softwaremetrics.core.CKReport;
 import org.eclipse.jdt.core.dom.*;
 
+// Number of Static Invocations 静态方法的调用次数。
 public class NOSI extends ASTVisitor implements Metric { //调用的静态方法数
 
     private int count = 0;
